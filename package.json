@@ -1,0 +1,25 @@
+{
+  "name": "magnum-opus-idle",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "《贤者之途》— 纯前端炼金术士增量挂机游戏，基于 kiko (TC39 signals) 构建",
+  "scripts": {
+    "build": "bun run build.ts",
+    "dev": "bun run dev.ts",
+    "dev:check": "bun run tools/audit-hmr.ts",
+    "test": "bun test",
+    "typecheck": "tsc --noEmit",
+    "serve": "bun run build.ts --serve",
+    "verify": "bun run build.ts && bun run verify.ts"
+  },
+  "dependencies": {
+    "@kikojs/dom": "0.4.4",
+    "@kikojs/signal": "^0.1.1"
+  },
+  "devDependencies": {
+    "@kikojs/hmr": "^0.2.1",
+    "bun-types": "^1.4.2",
+    "typescript": "^7.0.2"
+  }
+}

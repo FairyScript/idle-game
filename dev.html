@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>贤者之途 · dev</title>
+    <meta name="description" content="开发外壳：由 bun run dev（Bun.serve + kiko HMR）使用，加载 src/main.tsx 源码模块。" />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚗️</text></svg>" />
+    <style>
+      :root { color-scheme: dark; }
+      html, body { margin: 0; padding: 0; height: 100%; background: #0b0a10; }
+      body {
+        font-family: "Noto Sans SC", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", system-ui, -apple-system, sans-serif;
+        color: #e8e2d4;
+        -webkit-font-smoothing: antialiased;
+        overscroll-behavior: none;
+      }
+      #app { min-height: 100%; }
+      .boot {
+        display: flex; align-items: center; justify-content: center;
+        height: 100vh; color: #8b8375; font-size: 15px; letter-spacing: .3em;
+      }
+      .boot::after { content: ""; animation: boot 1.2s steps(4, end) infinite; }
+      @keyframes boot { 0% { content: ""; } 25% { content: "·"; } 50% { content: "··"; } 75% { content: "···"; } }
+    </style>
+  </head>
+  <body>
+    <div id="app"><div class="boot">正在点燃熔炉</div></div>
+    <noscript>本游戏需要启用 JavaScript。</noscript>
+    <script>
+      // 必须在模块脚本之前：配置独立的 HMR 端点客户端（走 WebSocket，连 /hmr）。
+      // Bun 自带的模块 HMR 由 import.meta.hot 负责，这个端点负责通知与兜底重载。
+      globalThis.__KIKO_HMR__ = { transport: "ws" }
+    </script>
+    <script type="module" src="./src/main.tsx"></script>
+  </body>
+</html>

@@ -1,0 +1,9 @@
+# Bun 全栈开发服务器（bun run dev）的打包插件配置。
+#
+# 只在 `Bun.serve` 走 HTML 路由时生效 —— 把 src/ 下的 tsx/ts 模块改写成
+# "HMR 注册表包装 + 端点胶水"，从而支持组件原位热替换（状态保留）。
+#
+# 不影响 `bun run build`：Bun.build 只读自己的 plugins 选项，生产产物仍是
+# 单文件 IIFE（可 file:// 直开）。
+[serve.static]
+plugins = ["@kikojs/hmr/bun"]

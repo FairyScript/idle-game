@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>贤者之途 · Magnum Opus Idle</title>
+    <meta name="description" content="纯前端炼金术士增量挂机游戏：元素合成、副产物配平、科技树与贤者之石。" />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚗️</text></svg>" />
+    <style>
+      :root { color-scheme: dark; }
+      html, body { margin: 0; padding: 0; height: 100%; background: #0b0a10; }
+      body {
+        font-family: "Noto Sans SC", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", system-ui, -apple-system, sans-serif;
+        color: #e8e2d4;
+        -webkit-font-smoothing: antialiased;
+        overscroll-behavior: none;
+      }
+      #app { min-height: 100%; }
+      .boot {
+        display: flex; align-items: center; justify-content: center;
+        height: 100vh; color: #8b8375; font-size: 15px; letter-spacing: .3em;
+      }
+      .boot::after { content: ""; animation: boot 1.2s steps(4, end) infinite; }
+      @keyframes boot { 0% { content: ""; } 25% { content: "·"; } 50% { content: "··"; } 75% { content: "···"; } }
+    </style>
+  </head>
+  <body>
+    <div id="app"><div class="boot">正在点燃熔炉</div></div>
+    <noscript>本游戏需要启用 JavaScript。</noscript>
+    <script src="./dist/game.js"></script>
+  </body>
+</html>
